@@ -125,7 +125,7 @@ pipeline {
                     
                     # Deploy
                     kubectl apply -f deployment-with-build-id.yaml
-                    kubectl apply -f service.yaml
+                    kubectl apply -f service-auth.yaml
                 """             
             }                   
         }
