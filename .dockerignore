@@ -1,0 +1,5 @@
+# .dockerignore para el monolito
+Dockerfile
+Jenkinsfile
+*.md
+target/*.war
