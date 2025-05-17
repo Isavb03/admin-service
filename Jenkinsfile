@@ -31,7 +31,7 @@ pipeline {
         stage('Step 1: LOAD SCM'){
             steps {
                 // Get some code from a GitHub repository
-                git branch: 'admin', url: 'https://github.com/Isavb03/admin-service.git'
+                git branch: 'main', url: 'https://github.com/Isavb03/admin-service.git'
 
             }
         }
