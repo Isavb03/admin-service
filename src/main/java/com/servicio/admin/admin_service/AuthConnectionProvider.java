@@ -1,3 +1,5 @@
+package com.servicio.admin.admin_service;
+
 import org.springframework.stereotype.Component;
 import java.sql.Connection;
 import java.sql.SQLException;

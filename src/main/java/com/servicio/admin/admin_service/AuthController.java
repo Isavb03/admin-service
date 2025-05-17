@@ -1,4 +1,4 @@
-package main.java.com.servicio.admin.admin_service;
+package com.servicio.admin.admin_service;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
