@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: admin-service
 spec:
-  type: NodePort  # Change from ClusterIP to NodePort
+  type: NodePort
   ports:
-    - nodePort: 31001
-      port: 8081
+    - port: 8080
       targetPort: 8080
+      nodePort: 31001
   selector:
-    app: admin-service          
+    app: admin-service 
