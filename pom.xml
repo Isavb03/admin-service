@@ -12,7 +12,6 @@
 	<artifactId>admin-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<finalName>auth-service</finalName>
 	<name>Servicio de administradores</name>
 	<description>Microservicio encargado de la gestión de administradores</description>
 	<url/>
@@ -90,6 +89,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>auth-service</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
