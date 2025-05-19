@@ -5,21 +5,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;  // Added import for HttpStatus
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+
+@CrossOrigin(origins = "http://192.168.49.2:30080") // Adjust the origin as needed
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "*") // Important for cross-origin requests
 public class AuthController {
-    
-    @Value("${admin.username:admin}")
-    private String adminUsername;
-    
-    @Value("${admin.password:1234}")
-    private String adminPassword;
-    
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestParam String username, 
                                   @RequestParam String password) {
