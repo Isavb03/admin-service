@@ -10,9 +10,9 @@ public class AuthConnectionProvider {
     
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/university",
-            "root",
-            "1234"
+            "jdbc:mysql://mysql-service:3306/university",
+            "admin",
+            "password"
         );
     }
 }
