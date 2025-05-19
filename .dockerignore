@@ -2,4 +2,3 @@
 Dockerfile
 Jenkinsfile
 *.md
-target/*.war
