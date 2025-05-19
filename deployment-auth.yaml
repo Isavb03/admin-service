@@ -20,3 +20,13 @@ spec:
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: "kubernetes"
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: password          
