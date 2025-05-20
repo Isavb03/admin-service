@@ -29,4 +29,16 @@ spec:
           valueFrom:
             secretKeyRef:
               name: mysql-secrets
+              key: password
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql:3306/university
+        - name: SPRING_DATASOURCE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: username
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
               key: password          

@@ -124,7 +124,7 @@ pipeline {
                     export KUBECONFIG=/home/jenkins/.kube/config
                     
                     # Deploy
-                    kubectl apply -f deployment-with-build-id.yaml
+                    kubectl apply -f deployment-with-build-id..yaml
                     kubectl apply -f service-auth.yaml
                 """             
             }                   
