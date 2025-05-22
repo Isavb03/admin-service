@@ -15,9 +15,7 @@
 //   }
 pipeline {
     agent any
-    options {
-        skipDefaultCheckout()
-    }
+
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
@@ -29,24 +27,6 @@ pipeline {
     }
 
     stages {
-
-        stage('CLEAN'){
-            steps {
-                    sh '''
-                        # Clean up any existing repository
-                        rm -rf .git
-                        rm -rf *
-                        
-                        # Fresh clone
-                        git clone https://github.com/Isavb03/admin-service.git .
-                        git checkout main
-                        
-                        # Verify we have a clean repository
-                        git status
-                        git log --oneline -5
-                    '''
-            }
-        }
 
        
         stage('Step 1: LOAD SCM'){
