@@ -16,6 +16,10 @@
 pipeline {
     agent any
 
+    options {
+        skipDefaultCheckout(true)  // 🔐 Important: prevents pre-checkout Git fetch
+    }
+    
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
