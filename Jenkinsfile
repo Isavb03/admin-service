@@ -19,7 +19,7 @@ pipeline {
     options {
         skipDefaultCheckout(true)  // 🔐 Important: prevents pre-checkout Git fetch
     }
-    
+
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
@@ -153,20 +153,20 @@ pipeline {
         archiveArtifacts 'target/*.jar'
         echo "Build ${currentBuild.fullDisplayName} completed successfully!! :D"
       }
-        always {
-        cleanWs()
-    //     junit allowEmptyResults: true, testResults: '**/target/surefire-reports/TEST-*.xml'
+    //     always {
+        
+    // //     junit allowEmptyResults: true, testResults: '**/target/surefire-reports/TEST-*.xml'
 
-    //     // Collect JaCoCo code coverage results
-    //     jacoco(
-    //         execPattern: 'target/jacoco.exec',
-    //         classPattern: 'target/classes',
-    //         sourcePattern: 'src/main/java',
-    //         exclusionPattern: 'src/test*'
-    //    )
+    // //     // Collect JaCoCo code coverage results
+    // //     jacoco(
+    // //         execPattern: 'target/jacoco.exec',
+    // //         classPattern: 'target/classes',
+    // //         sourcePattern: 'src/main/java',
+    // //         exclusionPattern: 'src/test*'
+    // //    )
     
       
-        }
+    //     }
 
       failure{
         echo "Ha fallado el build número ${currentBuild.fullDisplayName}"
