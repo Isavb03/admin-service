@@ -31,6 +31,7 @@ pipeline {
        
         stage('Step 1: LOAD SCM'){
             steps {
+                deleteDir()
                 // Get some code from a GitHub repository
                 git branch: 'main', url: 'https://github.com/Isavb03/admin-service.git'
 
@@ -148,7 +149,8 @@ pipeline {
         archiveArtifacts 'target/*.jar'
         echo "Build ${currentBuild.fullDisplayName} completed successfully!! :D"
       }
-    //   always {
+        always {
+        cleanWs()
     //     junit allowEmptyResults: true, testResults: '**/target/surefire-reports/TEST-*.xml'
 
     //     // Collect JaCoCo code coverage results
@@ -157,10 +159,10 @@ pipeline {
     //         classPattern: 'target/classes',
     //         sourcePattern: 'src/main/java',
     //         exclusionPattern: 'src/test*'
-    //     )
+    //    )
     
       
-    //   }
+        }
 
       failure{
         echo "Ha fallado el build número ${currentBuild.fullDisplayName}"
