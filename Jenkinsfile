@@ -59,32 +59,32 @@ pipeline {
             }                      
         }
  
-        // stage('STEP 4: SONARQUBE') {
-        //     environment {
-        //         SONARQUBE_TOKEN = credentials('sonarqube-token')
-        //     }
-        //     steps {
-        //         withSonarQubeEnv('SonarQube') {
-        //             sh '''
-        //                 mvn clean verify sonar:sonar \
-        //                 -Dsonar.projectName='admin-service' \
-        //                 -Dsonar.host.url=http://sonarqube:9000 \
-        //                 -Dsonar.projectKey=admin-service \
-        //                 -Dsonar.token=${SONARQUBE_TOKEN} \
-        //                 -Dsonar.java.binaries=target/classes \
-        //                 -Dsonar.javascript.node.maxspace=4096 \
-        //                 -Dsonar.javascript.timeout=1800 \
-        //                 -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml \
-        //                 -Dsonar.java.coveragePlugin=jacoco \
-        //                 -Dsonar.dependencyCheck.reportPath=target/dependency-check-report.xml \
-        //                 -Dsonar.dependencyCheck.htmlReportPath=target/dependency-check-report.html \
-        //                 -Dsonar.exclusions=**/vendor/**,**/node_modules/**,**/*.spec.ts \
-        //                 -Dsonar.test.inclusions=**/*Test.java,**/*Tests.java,**/*IT.java \
-        //                 -Dsonar.qualitygate.wait=false  # poner en true cuando se corrija el codigo
-        //             '''
-        //         }
-        //     }
-        // }
+        stage('STEP 4: SONARQUBE') {
+            environment {
+                SONARQUBE_TOKEN = credentials('sonarqube-token')
+            }
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
+                        mvn clean verify sonar:sonar \
+                        -Dsonar.projectName='admin-service' \
+                        -Dsonar.host.url=http://sonarqube:9000 \
+                        -Dsonar.projectKey=admin-service \
+                        -Dsonar.token=${SONARQUBE_TOKEN} \
+                        -Dsonar.java.binaries=target/classes \
+                        -Dsonar.javascript.node.maxspace=4096 \
+                        -Dsonar.javascript.timeout=1800 \
+                        -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml \
+                        -Dsonar.java.coveragePlugin=jacoco \
+                        -Dsonar.dependencyCheck.reportPath=target/dependency-check-report.xml \
+                        -Dsonar.dependencyCheck.htmlReportPath=target/dependency-check-report.html \
+                        -Dsonar.exclusions=**/vendor/**,**/node_modules/**,**/*.spec.ts \
+                        -Dsonar.test.inclusions=**/*Test.java,**/*Tests.java,**/*IT.java \
+                        -Dsonar.qualitygate.wait=false  # poner en true cuando se corrija el codigo
+                    '''
+                }
+            }
+        }
         
 
         stage('STEP 5: BUILD DOCKER IMAGE') {
